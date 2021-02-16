@@ -1,0 +1,112 @@
+{	
+	"GetList": 
+	{
+		"scope": "php",
+		"prefix": "gl",
+		"body": [
+			"\\$res = CIBlockElement::GetList(",
+			"\t['SORT'=>'ASC'],",
+			"\t['IBLOCK_ID' => '$1'],",
+			"\t[],",
+			"\t['nPageSize'=>50],",
+			"\t[]",
+		");",
+		"$2"
+		],
+		"description": "GetList"
+	},
+	"GetList2": 
+	{
+		"scope": "php, html",
+		"prefix": "gl2",
+		"body": [
+			"while(\\$ob = \\$res->GetNextElement())",
+			"{",
+				"\t\\$arFields = \\$ob->GetFields();",
+			   "\tprint_r(\\$arFields);",
+				"\n\t//\\$arProps = \\$ob->GetProperties();",
+			   "\t//print_r(\\$arProps);",
+			   "}",
+			   "$1"
+		],
+		"description": "GetList2"
+	},
+	"AddMessage2Log": 
+	{
+		"scope": "php",
+		"prefix": "add2",
+		"body": [
+			"AddMessage2Log(print_r($1), \"\");"
+		],
+		"description": "AddMessage2Log"
+	},
+	"<pre><? print_r()?></pre>": 
+	{
+		"scope": "php, html",
+		"prefix": "prepre",
+		"body": [
+			"<pre><?php print_r($1);?> </pre>"
+		],
+		"description": "<pre><?php print_r();?></pre>"
+	},
+	"echo <pre d:n> print_r() echo </pre>": 
+	{
+		"scope": "php, html",
+		"prefix": "prepre3",
+		"body": [
+			"echo '<pre style=\"display:none\">'; \nprint_r($1); \necho '</pre>';"
+		],
+		"description": "PrePrint_rPre"
+	},
+	"echo <pre> print_r() echo </pre>": 
+	{
+		"scope": "php, html",
+		"prefix": "prepre2",
+		"body": [
+			"echo '<pre>'; \nprint_r($1); \necho '</pre>';"
+		],
+		"description": "PrePrint_rPre"
+	},
+	"prolog": 
+	{
+		"scope": "php, html",
+		"prefix": "prolog",
+		"body": [
+			"require_once(\\$_SERVER['DOCUMENT_ROOT'] . \"/bitrix/modules/main/include/prolog_before.php\");"
+		],
+		"description": "prolog"
+	},
+	"document.querySelector()": 
+	{
+		"scope": "php, html, javascript",
+		"prefix": "query",
+		"body": [
+			"document.querySelector($1);"
+		],
+		"description": "document.querySelector()"
+	},
+	"window.onload": 
+	{
+		"scope": "php, html, javascript",
+		"prefix": "window",
+		"body": [
+			"window.onload = () =>",
+			"{",
+			"$1",
+			"}"
+		],
+		"description": "document.querySelector()"
+	},
+	"onclick": 
+	{
+		"scope": "php, html, javascript",
+		"prefix": "onclick",
+		"body": [
+			".onclick = () =>",
+			"{",
+				"\t$1",
+			"};"
+		],
+		"description": "onclick"
+	},
+}
