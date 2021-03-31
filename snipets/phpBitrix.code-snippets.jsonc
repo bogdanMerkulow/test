@@ -1,15 +1,15 @@
 {	
 	"GetList": 
 	{
-		"scope": "php",
+		"scope": "php, html, javascript",
 		"prefix": "gl",
 		"body": [
 			"\\$res = CIBlockElement::GetList(",
-			"\t['SORT'=>'ASC'],",
+			"\t[],",
 			"\t['IBLOCK_ID' => '$1'],",
 			"\t[],",
-			"\t['nPageSize'=>50],",
-			"\t[]",
+			"\t[],",
+			"\t['ID']",
 		");",
 		"$2"
 		],
@@ -17,7 +17,7 @@
 	},
 	"GetList2": 
 	{
-		"scope": "php, html",
+		"scope": "php, html, javascript",
 		"prefix": "gl2",
 		"body": [
 			"while(\\$ob = \\$res->GetNextElement())",
@@ -33,7 +33,7 @@
 	},
 	"AddMessage2Log": 
 	{
-		"scope": "php",
+		"scope": "php, html, javascript",
 		"prefix": "add2",
 		"body": [
 			"AddMessage2Log(print_r($1), \"\");"
@@ -42,7 +42,7 @@
 	},
 	"<pre><? print_r()?></pre>": 
 	{
-		"scope": "php, html",
+		"scope": "php, html, javascript",
 		"prefix": "prepre",
 		"body": [
 			"<pre><?php print_r($1);?> </pre>"
@@ -51,7 +51,7 @@
 	},
 	"echo <pre d:n> print_r() echo </pre>": 
 	{
-		"scope": "php, html",
+		"scope": "php, html, javascript",
 		"prefix": "prepre3",
 		"body": [
 			"echo '<pre style=\"display:none\">'; \nprint_r($1); \necho '</pre>';"
@@ -60,7 +60,7 @@
 	},
 	"echo <pre> print_r() echo </pre>": 
 	{
-		"scope": "php, html",
+		"scope": "php, html, javascript",
 		"prefix": "prepre2",
 		"body": [
 			"echo '<pre>'; \nprint_r($1); \necho '</pre>';"
@@ -69,7 +69,7 @@
 	},
 	"prolog": 
 	{
-		"scope": "php, html",
+		"scope": "php, html, javascript",
 		"prefix": "prolog",
 		"body": [
 			"require_once(\\$_SERVER['DOCUMENT_ROOT'] . \"/bitrix/modules/main/include/prolog_before.php\");"
@@ -92,7 +92,7 @@
 		"body": [
 			"window.onload = () =>",
 			"{",
-			"$1",
+			"\t$1",
 			"}"
 		],
 		"description": "document.querySelector()"
@@ -100,7 +100,7 @@
 	"onclick": 
 	{
 		"scope": "php, html, javascript",
-		"prefix": "onclick",
+		"prefix": ".onclick",
 		"body": [
 			".onclick = () =>",
 			"{",
